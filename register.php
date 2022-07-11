@@ -68,13 +68,13 @@ if(isset($_POST['name']) && isset($_POST['password']) && isset($_POST['confirmPa
   <div class="container">
     <form method="POST" class="form">
       <h4>Enregistrez-vous</h4>
-      <!-- veuillez remplir tout les champs -->
+  
       <p style="color:red">
       <?php 
-      if(isset($error)) { 
-        echo $error;
-        unset($_SESSION["error"]);
-      }  
+          if(isset($error)) { 
+            echo $error;
+            unset($_SESSION["error"]);
+          }  
       ?>  
       </p>
       <div class="form-row">

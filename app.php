@@ -14,7 +14,7 @@ if(!isset($_SESSION["member"])){
    if(!empty($_POST["task"])){
     $sql = 'INSERT INTO tasks (title, user_id, task_id) VALUES (:title, :user_id, :task_id)';
     $insert = $pdo->prepare($sql);
-     $insert->execute([
+    $insert->execute([
         ":title" => $_POST['task'],
         ":user_id" => $_SESSION['member'],
         ":task_id"=> $_SESSION['task_id']
@@ -51,18 +51,17 @@ if(!isset($_SESSION["member"])){
     return;
   }
 
-if (isset($_POST["editer"]) && isset($_POST["user_id"])) {
- $_SESSION["user_id"]=$_POST["user_id"];
+  if (isset($_POST["editer"]) && isset($_POST["user_id"])) {
+    $_SESSION["user_id"]=$_POST["user_id"];
     header("Location: ./edit.php");
 }
 
-if (isset($_POST["registrate"])) {
+  if (isset($_POST["registrate"])) {
   if (empty($_POST["title"])){
     $_SESSION["error"] = "veuillez remplir le champs";
     header("Location: edit.php?task_id=" . $task_id);
     return;
   }
-
 }
 
   ?>
@@ -103,15 +102,15 @@ if (isset($_POST["registrate"])) {
     <!-- <h4> Tâches à faire de</h4> -->
 
         <div class="added">
-                <input type="text" name="task">
-                <input type="submit" name="add" value="Ajouter" class="btn">
+            <input type="text" name="task">
+            <input type="submit" name="add" value="Ajouter" class="btn">
             </div>
   
         <div class="todo">
          <?php
-            foreach ($data as $tasks) {
-              $tasks = <<<EOL
-        <div>
+          foreach ($data as $tasks) {
+            $tasks = <<<EOL
+      <div>
       <p>{$tasks['title']}</p>
       <form method="POST" >
             <input type="hidden" name="task_id" value="{$tasks['task_id']}" >
@@ -126,6 +125,6 @@ if (isset($_POST["registrate"])) {
         </div>
         <a href="./logout.php">Se déconnecter</a>
          </div>
-         </div>
+        </div>
 </body>
 </html>
