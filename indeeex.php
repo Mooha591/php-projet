@@ -22,9 +22,9 @@ $error = $_SESSION["error"] ?? false;
     }
     ?>
     <a href="./register.php">Enregistrer vous</a>  
-    <a href="./login.php">connecter-vous
+    <a href="./login.php">connecter-vous </a>
 
-    <p>Essayer d'<a href="./app.php">ajouter des données</a> sans vous connecter.</p>
+    <p> Essayer d'<a href="./app.php">ajouter des données</a> sans vous connecter.</p>
   </div>
 </body>
 </html>
